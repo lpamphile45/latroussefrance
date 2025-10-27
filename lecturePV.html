@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note de lecture du PV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: large;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        .content-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            max-width: 800px;
+            margin: auto;
+        }
+        .download-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 20px;
+        }
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 2px solid #007bff;
+            outline: none;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 600px) {
+    .content-container {
+        width: 95%;
+        padding: 10px;
+    }
+    select, button {
+        width: 100%;
+        margin-top: 10px;
+    }
+    input[type="checkbox"] {
+        transform: scale(1.2);
+        margin-right: 10px;
+    }
+}
+    </style>
+</head>
+<body>
+    <h1>Note de lecture du PV</h1>
+    <div class="content-container">
+        <h2>Note de lecture 
+            <br>
+            du compte-rendu de conseil d’école</h2>
+        <hr />
+        <p><strong>École :</strong> ______________________</p>
+        <p><strong>Secteur de collège :</strong> ______________________</p>
+        <p><strong>Date du conseil d’école :</strong> ______________________</p>
+        <p><strong>Date de réception en circonscription :</strong> ______________________</p>
+        <p><strong>Compte-rendu lu par :</strong> ______________________</p>
+        <hr />
+        <p>J’ai pris connaissance du compte-rendu de votre dernier conseil d'école.</p>
+        <input type="checkbox"> Il n’attire pas de ma part d’observation particulière.<br>
+        <input type="checkbox"> Quelques éléments répertoriés ci-dessous ont attiré mon attention. Ils seront portés à l’ordre du jour du prochain conseil d’école.<br>
+        <hr />
+        <h3>Je vous remercie de bien vouloir :</h3>
+        <input type="checkbox"> Faire apparaître l’en-tête de l’école sur le compte-rendu.<em>(1er, 2 ème et 3 ème conseil d’école)</em><br>
+        <input type="checkbox"> Faire apparaître le nom de la commune.<em>(1er, 2 ème et 3 ème conseil d’école)</em><br>
+        <input type="checkbox"> Indiquer les noms de tous les enseignants.<em>(1er, 2 ème et 3 ème conseil d’école)</em><br>
+        <input type="checkbox"> Indiquer le nom de M. l’Inspecteur parmi les absents excusés.<em>(1er, 2 ème et 3 ème conseil d’école)</em><br>
+        <input type="checkbox"> Procéder à l’approbation du règlement intérieur.<em>(1er conseil d’école)</em><br>
+        <input type="checkbox"> Inclure l’approbation du compte-rendu du dernier conseil d’école.<em>(1er, 2 ème et 3 ème conseil d’école)</em><br>
+        <input type="checkbox"> Présenter les résultats des élections des représentants des parents.<em>(1er conseil d’école)</em><br>
+        <input type="checkbox"> Préciser les effectifs de l’école et leur répartition.<em>(1er et 3 ème conseil d’école)</em><br>
+        <input type="checkbox"> Présenter les résultats aux évaluations nationales.<em>(1er et 2 ème conseil d’école)</em><br>
+        <input type="checkbox"> Évoquer le protocole pHARe et sa mise en œuvre.<em>(1er conseil d’école)</em><br>
+        <input type="checkbox"> Présenter la prise en charge des élèves par le RASED. <em>(1er, 2 ème et 3 ème conseil d’école)</em><br>
+        <input type="checkbox"> Expliquer les modalités des APC. <em>(1er, 2 ème et 3 ème conseil d’école)</em><br>
+        <input type="checkbox"> Décrire les liaisons inter-cycles. <em>(1er, 2 ème et 3 ème conseil d’école)</em><br>
+        <input type="checkbox"> Préciser les PPMS et les exercices incendies. <em>(1er, 2 ème et 3 ème conseil d’école)</em><br>
+        <input type="checkbox"> Faire un point financier sur les budgets et coopératives scolaires.<em>(1er, 2 ème et 3 ème conseil d’école)</em><br>
+        <p>Merci pour l’attention que vous porterez à la rédaction du prochain compte-rendu de conseil d’école.</p>
+    </div>
+    <div class="download-container">
+        <label for="fileFormat">Choisissez un format :</label>
+        <select id="fileFormat">
+            <option value="https://nuage02.apps.education.fr/index.php/s/MByWZPFr8JXHgHJ/download/Notedelecturedecompterendu.pdf">PDF</option>
+            <option value="https://nuage02.apps.education.fr/index.php/s/62JnZLPiEwxMbZD/download/Notedelecturedecompterendu.docx">Word</option>
+            <option value="">LibreOffice</option>
+        </select>
+        <br>
+        <button onclick="downloadFile()">Télécharger</button>
+    </div>
+    <footer>
+        <p>&copy; 2025</p>
+    </footer>
+    <script>
+        function downloadFile() {
+            let select = document.getElementById("fileFormat");
+            let selectedFile = select.value;
+            if (selectedFile) {
+                window.open(selectedFile, "_blank");
+            }
+        }
+    </script>
+</body>
+</html>

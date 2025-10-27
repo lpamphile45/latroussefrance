@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte-rendu d'équipe éducative</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: large;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        .content-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            max-width: 800px;
+            margin: auto;
+        }
+        .download-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 20px;
+        }
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 2px solid #007bff;
+            outline: none;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 600px) {
+    .content-container {
+        width: 95%;
+        padding: 10px;
+    }
+    select, button {
+        width: 100%;
+        margin-top: 10px;
+    }
+    input[type="checkbox"] {
+        transform: scale(1.2);
+        margin-right: 10px;
+    }
+}
+    </style>
+</head>
+<body>
+    <h1>Compte-rendu équipe éducative à compléter</h1>
+    <div class="content-container">
+        <iframe src="./documents/equipe_educative/equipe_educative_modele.pdf" width="800" height="600"></iframe>
+        
+    </div>
+    <div class="download-container">
+        <label for="fileFormat">Choisissez un format :</label>
+        <select id="fileFormat">
+            <option value="https://nuage02.apps.education.fr/index.php/s/a6asmxdb4xS8BTL/download/equipeeducativemodele.pdf">PDF</option>
+            <option value="https://nuage02.apps.education.fr/index.php/s/wQ9rkPt95H66GPq/download/equipe%20educative%20modele.docx">Word</option>
+            
+            <option value="">LibreOffice</option>
+        </select>
+        <br>
+        <button onclick="downloadFile()">Télécharger</button>
+    </div>
+    <footer>
+        <p>&copy; 2025</p>
+    </footer>
+    <script>
+        function downloadFile() {
+            let select = document.getElementById("fileFormat");
+            let selectedFile = select.value;
+            if (selectedFile) {
+                window.open(selectedFile, "_blank");
+            }
+        }
+    </script>
+</body>
+</html>

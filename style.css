@@ -1,0 +1,118 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #A1E3F9;
+    padding: 20px;
+}
+
+.beta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg); /* Rotation diagonale */
+    font-size: 80px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.1);  /* Transparence */
+    z-index: -1;
+    white-space: nowrap;
+}
+
+h1 {
+    color: #007bff;
+    
+}
+
+/* Champ de recherche */
+#search-bar {
+    width: 60%;
+    max-width: 90%;
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Conteneur des résultats */
+.result-container {
+    margin-top: 20px;
+}
+
+/* Styles des résultats */
+.result {
+    display: none; /* Caché par défaut */
+    background-color: white;
+    padding: 15px;
+    margin: 10px auto;
+    width: 60%;
+    max-width: 90%;
+    border-radius: 5px;
+    border: 2px dotted #0056b3;
+    box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Texte mis en évidence */
+.highlight {
+    color: #007bff;
+}
+
+/* Style des mots-clés sous forme de liens sobres */
+.keyword-link {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 5px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none; /* Supprime le soulignement */
+    cursor: pointer;
+}
+
+.keyword-link:hover {
+    background-color: #0056b3; /* Bleu foncé au survol */
+}
+
+.MAJ {
+    text-align: left;
+    padding-left: 20px;
+    list-style: none;
+}
+
+
+/* Pied de page */
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablettes et petits écrans */
+@media (max-width: 768px) {
+    #search-bar {
+        width: 80%;
+    }
+
+    .result {
+        width: 80%;
+        font-size: 16px;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+    #search-bar {
+        width: 100%;
+    }
+
+    .result {
+        width: 90%;
+        font-size: 14px;
+    }
+}

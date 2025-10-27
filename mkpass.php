@@ -1,0 +1,1 @@
+<?php echo password_hash('Iloves2de', PASSWORD_BCRYPT);

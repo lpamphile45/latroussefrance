@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #A1E3F9;
+   }
+header {
+    background: #004080;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+header .titre a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold; /* Optionnel, pour le rendre plus visible */
+    display: flex;
+    justify-content: flex-start; /* Alignement à gauche */
+}
+nav {
+    display: flex;
+    justify-content: center;
+    background: #0059b3;
+    padding: 0.5rem;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+nav a:hover {
+    background: #003366;
+}
+.container {
+    width: 90%;
+    margin: auto;
+    max-width: 1200px;
+    padding: 2rem 0;
+}
+.section {
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px gray;
+    border : 1px solid #0059b3;
+}
+
+ul {
+    list-style: none;
+    padding: 5px;
+}
+
+/* ouverture d'une info-bulle au survol de la souris*/
+/* Style de l'élément déclencheur */
+.hover-target {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 50px;
+}
+
+/* Style de l'info-bulle */
+.tooltip {
+    position: absolute;
+    background-color: black;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    max-width: 200px;
+    text-align: center;
+    white-space: normal; /* Permet le retour à la ligne */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Style de la FAQ*/
+.faq-item {
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.faq-answer {
+    display: none;
+    margin-left: 20px;
+}
+
+footer {
+    background: #004080;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav a {
+        padding: 1rem;
+    }
+}

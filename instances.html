@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5- Les instances</title>
+    <style>
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        #search-bar {
+            width: 60%;
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        .table-container {
+            max-width: 90%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .download-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background 0.3s, transform 0.2s;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .pdf { background-color: #d9534f; } /* Rouge pour PDF */
+        .docx { background-color: #007bff; } /* Bleu pour DOCX */
+        .txt { background-color: #5bc0de; } /* Cyan pour TXT */
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+    
+<body>
+    <h1>5- Les instances</h1>
+    <div class="download-section">
+        <h2>Les instances de concertation à l'école</h2>
+        <input type="text" id="search-bar" placeholder="Rechercher une instance..." onkeyup="filterTable()">
+
+        <div class="table-container">
+            <table id="instances-table">
+                <thead>
+                    <tr>
+                        <th>Instance</th>
+                        <th>Composition</th>
+                        <th>Compétences</th>
+                        <th>Points à l'ordre du jour</th>
+                        <th>Planification</th>
+                        <th>Suites données</th>
+                        <th>Rôle du directeur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Conseil d'école</strong><br>
+                            <a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000039017156/" target="_blank">Décret n°2019-918</a>
+                        </td>
+                        <td>Le directeur (président), IEN, enseignants, RASED, élus (Maire et EPCI), parents d'élèves, DDEN.</td>
+                        <td>Vote le règlement intérieur, donne un avis sur l’organisation pédagogique et les actions éducatives.</td>
+                        <td>Règlement intérieur, projet d'école, sécurité (PPMS), actions pédagogiques, travaux, budget, harcèlement.</td>
+                        <td>Une fois par trimestre, à la demande du directeur, du Maire ou de la moitié des membres.</td>
+                        <td>Procès-verbal adressé à l’IEN et au Maire, affiché pour les parents.</td>
+                        <td>Organise, préside, anime, informe et diffuse le compte-rendu.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conseil des maîtres</strong><br>
+                            <a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000039017156/" target="_blank">Décret n°2019-918</a>
+                        </td>
+                        <td>Le directeur (président), tous les enseignants, remplaçants, membres du RASED. Possibles : AESH, partenaires.</td>
+                        <td>Donne un avis sur l’organisation du service et la pédagogie, prépare le conseil d’école, élabore le règlement intérieur.</td>
+                        <td>Vie et organisation de l’école, projet d’école, sécurité, sorties, budget, emploi du temps des AESH.</td>
+                        <td>Au moins une fois par trimestre, dans le cadre des 24h de concertation.</td>
+                        <td>Compte-rendu dans un registre consultable, mise en application des décisions.</td>
+                        <td>Établit le calendrier, préside, anime, consulte le conseil avant d’arrêter les organisations.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conseil de cycle</strong><br>
+                            <a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029682713/" target="_blank">Décret n°2014-1231</a>
+                        </td>
+                        <td>Enseignants du cycle, RASED, professeurs de 6e, directeur (si besoin). Dans une petite école, tous les maîtres y participent.</td>
+                        <td>Élabore la partie pédagogique du projet d'école, suit les acquis et besoins des élèves, construit des outils communs.</td>
+                        <td>Projet d’école spécifique au cycle, évaluations nationales, suivi des élèves, aides aux élèves en difficulté.</td>
+                        <td>Au moins une fois par trimestre, selon les besoins de suivi et d’orientation.</td>
+                        <td>Compte-rendu dans un registre consultable, mise en application des actions décidées.</td>
+                        <td>Établit le calendrier, membre de droit, rôle de coordination.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div><p>Conseil d'école ; Conseil des maitres ; conseils de cycles : tableau synthétiques des instances</p>
+        <a href="https://nuage02.apps.education.fr/index.php/s/ZPEyH4f53jTMDWj" target="_blank" class="download-btn pdf">📄 Télécharger en PDF</a>
+        <a href="https://nuage02.apps.education.fr/index.php/s/ExQ6fGGqXdtFJH6"  target="_blank" class="download-btn docx">📝 Télécharger en DOCX</a>
+        <a href="document.txt"  target="_blank" class="download-btn txt">📜 Télécharger en ODT</a>
+        </div>
+
+
+        <script>
+            
+    fetch("menu.html")
+        .then(response => response.text())
+        .then(data => document.getElementById("menu").innerHTML = data);
+
+            function filterTable() {
+                let input = document.getElementById("search-bar");
+                let filter = input.value.toLowerCase();
+                let table = document.getElementById("instances-table");
+                let rows = table.getElementsByTagName("tr");
+    
+                for (let i = 1; i < rows.length; i++) {
+                    let cells = rows[i].getElementsByTagName("td");
+                    let found = false;
+    
+                    for (let j = 0; j < cells.length; j++) {
+                        if (cells[j].innerText.toLowerCase().includes(filter)) {
+                            found = true;
+                            break;
+                        }
+                    }
+    
+                    rows[i].style.display = found ? "" : "none";
+                }
+            }
+        </script>
+
+</body>
+</html>

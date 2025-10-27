@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Bonne Direction</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./images/favicon/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RVCVMR5KQX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+
+  // Consent Mode v2 — par défaut on ne stocke rien tant que l'utilisateur n'a pas accepté
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
+
+  // Initialisation GA4 (ne collecte pas tant que "denied")
+  gtag('js', new Date());
+  gtag('config', 'G-RVCVMR5KQX', {
+    anonymize_ip: true,
+    debug_mode: true
+  });
+</script>
+</head>
+    
+<body>
+    <div class="beta">LA BONNE DIRECTION</div>
+    <h1>La Trousse des Directrices et Directeurs d'école</h1>
+    <h1>avec le </h1>
+    <img src="/images/s2de_logo.png">
+    <h2>Tous vos outils au bon endroit.</h2>
+    <h3>Simple. Rapide. Efficace.</h3>
+    
+
+       <!-- Champ de recherche -->
+       <input type="text" id="search-bar" placeholder="Tapez un mot-clé...">
+       <button type="button" id="clear-search" aria-label="Effacer la recherche">&times;</button>
+
+       <!-- Conteneur des résultats (rempli par JavaScript) -->
+       <div class="result-container"></div>
+
+<!-- Liste des mots-clés sous la barre de recherche -->
+<p class="keyword-list-note">Dossiers thématiques complets</p>
+<div id="keyword-list">
+    <a href="./autorite_parentale.html" class="keyword-link">Autorité parentale</a>
+    <a href="./conseil_ecole.html" class="keyword-link">Conseil d'école</a>
+    <a href="./equipe_educative.html" class="keyword-link">Équipe éducative</a>
+    <a href="./poursuite_scolarite.html" class="keyword-link">Poursuite de la scolarité</a>
+</div>
+<p class="keywords-note">Exemples de mots-clés rapides : cliquez pour lancer une recherche automatiquement.</p>
+<!-- Exemples de mots-clés rapides cliquables -->
+<div id="quick-keywords" class="quick-keywords">
+    <button type="button" class="chip" data-term="cycle 1">Cycle 1</button>
+    <button type="button" class="chip" data-term="cycle 2">Cycle 2</button>
+    <button type="button" class="chip" data-term="cycle 3">Cycle 3</button>
+    <button type="button" class="chip" data-term="élections">Élections RPE</button>
+    <button type="button" class="chip" data-term="évaluations">Évaluations nationales</button>
+    <button type="button" class="chip" data-term="guide">Guides</button>
+    <button type="button" class="chip" data-term="Onde">Onde</button>
+    <button type="button" class="chip" data-term="Pilotage">Pilotage</button>
+    <button type="button" class="chip" data-term="Salaire">Salaire</button>
+    
+</div>
+
+
+<footer>
+    <p>&copy; 2025 <!-- <a href="./maj.html" target="_blank">MAJ</a> --> V3.0</p>
+</footer>
+
+  <style>
+    /* ——— Styles des mots-clés rapides ——— */
+    .quick-keywords{
+      display:flex;
+      justify-content:center;       /* centrage horizontal sous la barre de recherche */
+      gap:10px;
+      flex-wrap:wrap;
+      margin:12px 0 20px;
+    }
+    .quick-keywords .chip{
+      border:1px solid var(--chip-border, #cfd8ff);
+      border-radius:16px;
+      padding:8px 12px;
+      background:var(--chip-bg, #eef2ff);    /* teinte douce en harmonie avec le thème clair */
+      color:var(--chip-text, #223b7b);
+      cursor:pointer;
+      font:14px system-ui,Arial,sans-serif;
+      transition:transform .05s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+    .quick-keywords .chip:hover{
+      border-color:var(--chip-border-hover, #b9c6ff);
+      background:var(--chip-bg-hover, #e6ecff);
+      box-shadow:0 1px 0 rgba(0,0,0,.04);
+    }
+    .quick-keywords .chip:active{transform:scale(0.98)}
+    @media (prefers-color-scheme: dark){
+      .quick-keywords .chip{
+        border-color:var(--chip-border-dark, #3a4a7a);
+        background:var(--chip-bg-dark, #1b2440);
+        color:var(--chip-text-dark, #dbe4ff);
+      }
+      .quick-keywords .chip:hover{
+        border-color:var(--chip-border-dark-hover, #4e5f94);
+        background:var(--chip-bg-dark-hover, #232e54);
+      }
+    }
+    #cmp-banner{
+      position:fixed;
+      left:0;
+      right:0;
+      top:0;
+      z-index:9999;
+      background:#111;
+      color:#fff;
+      padding:20px;
+      min-height:80px;
+      font:16px/1.4 system-ui,Arial,sans-serif;
+      display:none
+    }
+    #cmp-banner .btn{margin-left:8px;padding:6px 10px;border:0;cursor:pointer}
+    #cmp-accept{background:#27ae60;color:#fff}
+    #cmp-refuse{background:#555;color:#fff}
+    #cmp-banner a{color:#9bd}
+
+    #search-bar{
+      position:relative;
+      padding-right:24px; /* pour laisser la place à la croix */
+    }
+    #clear-search{
+      position:relative;
+      left:-30px;
+      background:transparent;
+      border:none;
+      font-size:18px;
+      cursor:pointer;
+      color:#666;
+      display:none;
+    }
+    #clear-search:hover{color:#000;}
+  </style>
+  <script>
+    (function(){
+      function wireQuickKeywords(){
+        const sb = document.getElementById('search-bar');
+        if(!sb) return;
+        document.querySelectorAll('#quick-keywords .chip').forEach(btn=>{
+          btn.addEventListener('click', ()=>{
+            const term = btn.getAttribute('data-term') || btn.textContent.trim();
+            sb.value = term;
+            sb.focus();
+            // Déclenche le filtrage comme si l'utilisateur avait tapé
+            sb.dispatchEvent(new Event('input'));
+          });
+        });
+
+        const searchBar = document.getElementById('search-bar');
+        const clearBtn = document.getElementById('clear-search');
+        if (searchBar && clearBtn){
+          searchBar.addEventListener('input', ()=>{
+            clearBtn.style.display = searchBar.value ? 'inline' : 'none';
+          });
+          clearBtn.addEventListener('click', ()=>{
+            searchBar.value = '';
+            clearBtn.style.display = 'none';
+            searchBar.focus();
+            searchBar.dispatchEvent(new Event('input'));
+          });
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', wireQuickKeywords);
+      } else {
+        wireQuickKeywords();
+      }
+    })();
+  </script>
+  <div id="cmp-banner" role="dialog" aria-live="polite" aria-label="Bandeau de consentement">
+    Ce site utilise Google Analytics pour mesurer l'audience. Acceptez-vous le dépôt de cookies de mesure ?
+    <button id="cmp-accept" class="btn">Accepter</button>
+    <button id="cmp-refuse" class="btn">Refuser</button>
+  </div>
+  <script>
+    (function(){
+      const KEY = 'cmp_choice_v1';
+      const saved = localStorage.getItem(KEY);
+      const banner = document.getElementById('cmp-banner');
+      function show(){ banner.style.display = 'block'; }
+      function hide(){ banner.style.display = 'none'; }
+      function grant(){
+        gtag('consent','update',{
+          ad_storage:'granted',
+          analytics_storage:'granted',
+          ad_user_data:'granted',
+          ad_personalization:'granted'
+        });
+        localStorage.setItem(KEY,'granted');
+        hide();
+      }
+      function deny(){
+        gtag('consent','update',{
+          ad_storage:'denied',
+          analytics_storage:'denied',
+          ad_user_data:'denied',
+          ad_personalization:'denied'
+        });
+        localStorage.setItem(KEY,'denied');
+        hide();
+      }
+      if (!saved) show();
+      else if (saved === 'granted') grant();
+      else deny();
+      document.getElementById('cmp-accept').addEventListener('click', grant);
+      document.getElementById('cmp-refuse').addEventListener('click', deny);
+    })();
+  </script>
+   <script>
+   (function(){
+     function add(src){
+       var s = document.createElement('script');
+       s.src = src + (src.indexOf('?')===-1?'?':'&') + 'v=' + Date.now();
+       s.async = false; // garantit l'ordre d'exécution
+       document.head.appendChild(s);
+     }
+     add('./data.js');
+     add('./script.js');
+   })();
+   </script>
+
+</body>
+</html>
